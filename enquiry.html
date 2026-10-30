@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<title>Volunteer and Enquiries | Ubuntu Givers</title>
+<meta name="description" content="Contact Ubuntu Givers to enquire about volunteering, sponsorship opportunities and ways to support our community programmes.">
+
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header and navigation -->
+    <header>
+        <h1>Ubuntu Givers</h1>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Community Programmes</a></li>
+                <li><a href="enquiry.html">Volunteer</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="image-section">
+
+    <picture>
+    <source
+        media="(max-width: 600px)"
+        srcset="images/volunteer.jpg"
+    >
+
+    <img
+        src="images/volunteer.jpg"
+        srcset="
+            images/volunteer.jpg 600w,
+            images/volunteer.jpg 1200w
+        "
+        sizes="(max-width: 600px) 100vw, 1200px"
+        alt="Volunteers supporting a Ubuntu Givers community initiative"
+        class="responsive-image"
+    >
+    </picture>
+
+</section>
+
+    <!-- Enquiry page -->
+    <main>
+
+        <section>
+            <h2>Get Involved</h2>
+
+            <p>
+                There are many ways to support Ubuntu Givers.
+                You can volunteer your time, become a sponsor,
+                or support one of our community programmes.
+            </p>
+        </section>
+
+        <!-- Volunteer and sponsorship enquiry form -->
+        <section>
+            <h2>Volunteer or Sponsorship Enquiry</h2>
+
+            
+<form id="enquiryForm" action="#" method="post">
+
+    <!-- Full name -->
+    <label for="name">Full Name:</label>
+    <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        minlength="2"
+        maxlength="80"
+        autocomplete="name"
+    >
+
+    <br><br>
+
+    <!-- Email -->
+    <label for="email">Email Address:</label>
+    <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        maxlength="254"
+        autocomplete="email"
+    >
+
+    <br><br>
+
+    <!-- Phone number -->
+    <label for="phone">Phone Number:</label>
+    <input
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="[0-9 +()\-]{7,20}"
+        title="Enter a phone number using 7–20 characters, with digits and optional spaces, +, brackets or hyphens."
+        maxlength="20"
+        autocomplete="tel"
+    >
+
+    <br><br>
+
+    <!-- Enquiry type -->
+    <label for="enquiry-type">Enquiry Type:</label>
+    <select id="enquiry-type" name="enquiry-type" required>
+        <option value="volunteer">Volunteer</option>
+        <option value="sponsor">Sponsorship</option>
+        <option value="general">General Enquiry</option>
+    </select>
+
+    <br><br>
+
+    <!-- Message -->
+    <label for="message">Message:</label>
+    <br>
+
+    <textarea
+        id="message"
+        name="message"
+        rows="6"
+        cols="40"
+        minlength="10"
+        maxlength="1000"
+        required
+        placeholder="Tell us how you would like to get involved."
+    ></textarea>
+
+    <br><br>
+
+    <!-- Feedback area -->
+    <p id="enquiryFeedback" role="status" aria-live="polite"></p>
+
+    <!-- Submit button -->
+    <button type="submit">Submit Enquiry</button>
+
+</form>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ubuntu Givers. All Rights Reserved.</p>
+    </footer>
+ <script src="javascript/script.js"></script>
+</body>
+</html>
