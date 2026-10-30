@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-WEBSITE-URL/sitemap.xml
+Sitemap: https://bulelwa05.github.io/Ubuntu-Givers-Part-3-Summative-Assignment-/sitemap.xml
