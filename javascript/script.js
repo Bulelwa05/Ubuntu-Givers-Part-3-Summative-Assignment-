@@ -77,8 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             searchMessage.textContent = "Showing " + visibleCount + " matching programme(s).";
         }
-    });
-});
 
 
 /* Frequently Asked Questions accordion */
