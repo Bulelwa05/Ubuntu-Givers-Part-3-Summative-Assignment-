@@ -189,7 +189,7 @@ The following changes were made during Part 2:
 
 ### Mobile View
 
-![Ubuntu Givers Mobile View](images/mobile-screenshot.png)
+![Ubuntu Givers Mobile View](images/mobile_screenshot.png)
 
 ---
 
@@ -204,7 +204,6 @@ Ubuntu Givers
 ├── Community Programmes
 ├── Volunteer
 └── Contact Us
-```
 
 
 ## Project Structure
@@ -212,18 +211,18 @@ Ubuntu Givers
 The main project structure includes:
 
 Ubuntu Givers
-│
+
 ├── css
 │   └── style.css
-│
+├── javascript
+│   └── script.js
 ├── images
-│   ├── website images
-│   ├── desktop-screenshot.png
-│   ├── tablet-screenshot.png
-│   └── mobile-screenshot.png
-│
-├── HTML pages
-│
+│   └── website images and screenshots
+├── index.html
+├── about.html
+├── services.html
+├── enquiry.html
+├── contact.html
 └── README.md
 
 ## Changelog
@@ -255,7 +254,7 @@ Ubuntu Givers
 * Added desktop, tablet and mobile screenshots.
 * Updated the README with Part 2 documentation and testing evidence.
 
-### Part 3 — Enhancements
+### Part 3 — Enhancing Functionality and SEO
 
 * Added JavaScript functionality to search and filter community programmes.
 * Added an FAQ accordion to the About page.
@@ -279,5 +278,9 @@ The following resources were consulted during the development of the website:
 ## GitHub Repository
 
 The completed Ubuntu Givers website and source files are available in the project's GitHub repository.
+
+**GitHub Repository:** [Ubuntu Givers Part 3 – Summative Assignment](https://github.com/Bulelwa05/Ubuntu-Givers-Part-3-Summative-Assignment-)
+
+**Live Website:** [View the Ubuntu Givers Website](https://bulelwa05.github.io/Ubuntu-Givers-Part-3-Summative-Assignment-/)
 
 **GitHub Repository:** https://github.com/Bulelwa05
