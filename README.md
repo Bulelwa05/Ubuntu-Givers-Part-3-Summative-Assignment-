@@ -269,6 +269,9 @@ Ubuntu Givers
 * Reviewed image alternative text and homepage HTML structure.
 * Added `robots.txt` and `sitemap.xml`.
 * Tested the website's main pages and checked the layout in a mobile-sized browser view.
+- Added a responsive community image gallery to the homepage.
+- Added JavaScript lightbox functionality with click-to-open, close-button, outside-click and Escape-key support.
+- Added CSS styling for the gallery and lightbox.
 
 
 ## References
