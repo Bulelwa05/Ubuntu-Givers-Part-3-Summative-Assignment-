@@ -166,7 +166,7 @@ The following changes were made during Part 2:
 * Reduced repeated CSS rules while maintaining the original design.
 * Tested the website at desktop, tablet and mobile screen sizes.
 
-### Part 3: Enhanced Features
+### Part 3: Enhancing Functionality and SEO
 
 - **JavaScript programme search:** Users can search and filter community programmes by entering keywords.
 - **Interactive FAQ accordion:** Users can click frequently asked questions to display their answers.
@@ -181,7 +181,9 @@ The following changes were made during Part 2:
 - **Added a community image gallery to the homepage featuring programme, community and volunteer images.
 - **Implemented an interactive lightbox that allows visitors to enlarge gallery images and close them using the close button, clicking outside the image or pressing Escape.
 - **Added responsive gallery styling to display images neatly on desktop and mobile devices.
- 
+- **Added an interactive search and filtering feature that allows visitors to find community programmes using keywords.
+- **Added programme sorting functionality, allowing visitors to arrange programmes alphabetically from A to Z or Z to A.
+  
 ## Testing Screenshots
 
 ### Desktop View
@@ -272,6 +274,8 @@ Ubuntu Givers
 - Added a responsive community image gallery to the homepage.
 - Added JavaScript lightbox functionality with click-to-open, close-button, outside-click and Escape-key support.
 - Added CSS styling for the gallery and lightbox.
+- Improved programme search and filtering functionality.
+- Introduced alphabetical sorting for community programmes.
 
 
 ## References
