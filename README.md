@@ -176,6 +176,8 @@ The following changes were made during Part 2:
 - **SEO files:** Added `robots.txt` and `sitemap.xml` to support search engine crawling and indexing once the website is deployed.
 - **Responsive design:** The website was tested in a mobile-sized browser view.
 - **Added an interactive Google Maps embed to the Contact page, displaying Johannesburg as the organisation's general service area. The map is responsive and was tested on desktop and mobile devices.
+- **Added CSS transitions and hover effects to buttons, links and programme cards.
+- **Added a fade-in keyframe animation to improve page-loading presentation.
 
 
 ## Testing Screenshots
