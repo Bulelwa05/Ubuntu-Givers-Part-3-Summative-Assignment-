@@ -171,3 +171,43 @@ document.addEventListener("DOMContentLoaded", function () {
             "&body=" + body;
     });
 });
+
+// Part 3: Image gallery lightbox
+
+document.addEventListener("DOMContentLoaded", function () {
+    const galleryImages = document.querySelectorAll(".gallery-image img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    if (!lightbox || !lightboxImage || !closeLightbox) {
+        return;
+    }
+
+    galleryImages.forEach(function (image) {
+        image.parentElement.addEventListener("click", function () {
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightbox.hidden = false;
+        });
+    });
+
+    closeLightbox.addEventListener("click", function () {
+        lightbox.hidden = true;
+        lightboxImage.src = "";
+    });
+
+    lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) {
+            lightbox.hidden = true;
+            lightboxImage.src = "";
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            lightbox.hidden = true;
+            lightboxImage.src = "";
+        }
+    });
+});
