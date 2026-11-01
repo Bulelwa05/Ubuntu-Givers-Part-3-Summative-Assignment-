@@ -175,6 +175,7 @@ The following changes were made during Part 2:
 - **Search engine optimisation (SEO):** Each page has a descriptive page title and meta description. Image alternative text and semantic HTML headings support accessibility and search visibility.
 - **SEO files:** Added `robots.txt` and `sitemap.xml` to support search engine crawling and indexing once the website is deployed.
 - **Responsive design:** The website was tested in a mobile-sized browser view.
+- **Added an interactive Google Maps embed to the Contact page, displaying Johannesburg as the organisation's general service area. The map is responsive and was tested on desktop and mobile devices.
 
 
 ## Testing Screenshots
