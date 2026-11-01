@@ -12,29 +12,63 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Search and filter community programmes.
+// Search, filter and sort community programmes.
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("programmeSearch");
-    const programmes = document.querySelectorAll(".programme-card");
+    const programmeContainer = document.querySelector("main");
     const searchMessage = document.getElementById("searchMessage");
+    const sortSelect = document.getElementById("programmeSort");
 
-    if (!searchInput || programmes.length === 0 || !searchMessage) {
+    if (!searchInput || !programmeContainer || !searchMessage || !sortSelect) {
         return;
     }
 
-    searchInput.addEventListener("input", function () {
+    const programmes = Array.from(
+        programmeContainer.querySelectorAll(".programme-card")
+    );
+
+    function updateProgrammes() {
         const searchTerm = searchInput.value.trim().toLowerCase();
-        let visibleCount = 0;
+        const sortOrder = sortSelect.value;
 
-        programmes.forEach(function (programme) {
-            const programmeText = programme.textContent.toLowerCase();
-            const matches = programmeText.includes(searchTerm);
+        const sortedProgrammes = [...programmes];
 
+        if (sortOrder === "ascending") {
+            sortedProgrammes.sort((a, b) =>
+                a.querySelector("h3").textContent.localeCompare(
+                    b.querySelector("h3").textContent
+                )
+            );
+        } else if (sortOrder === "descending") {
+            sortedProgrammes.sort((a, b) =>
+                b.querySelector("h3").textContent.localeCompare(
+                    a.querySelector("h3").textContent
+                )
+            );
+        }
+
+        sortedProgrammes.forEach(function (programme) {
+            const matches = programme.textContent.toLowerCase().includes(searchTerm);
             programme.hidden = !matches;
-
-            if (matches) {
-                visibleCount++;
-            }
+            programmeContainer.appendChild(programme);
         });
+
+        const visibleCount = sortedProgrammes.filter(function (programme) {
+            return !programme.hidden;
+        }).length;
+
+        if (visibleCount === 0) {
+            searchMessage.textContent = "No programmes found. Try another search.";
+        } else if (searchTerm === "") {
+            searchMessage.textContent = "Showing all " + visibleCount + " programmes.";
+        } else {
+            searchMessage.textContent = "Showing " + visibleCount + " matching programme(s).";
+        }
+    }
+
+    searchInput.addEventListener("input", updateProgrammes);
+    sortSelect.addEventListener("change", updateProgrammes);
+});
 
         if (visibleCount === 0) {
             searchMessage.textContent = "No programmes found. Try another search.";
@@ -206,5 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
             lightbox.hidden = true;
             lightboxImage.src = "";
         }
+
+        
     });
 });
