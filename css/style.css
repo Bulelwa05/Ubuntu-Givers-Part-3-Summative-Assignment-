@@ -651,3 +651,38 @@ button:hover {
 main {
     animation: fadeIn 0.7s ease-in-out;
 }
+
+/* Part 3: Image lightbox */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+}
