@@ -6,9 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Ubuntu Givers JavaScript is working!");
 });
 
-
-"use strict";
-
 // Confirm that JavaScript is connected correctly.
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Ubuntu Givers JavaScript is working!");
