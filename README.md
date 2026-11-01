@@ -178,8 +178,10 @@ The following changes were made during Part 2:
 - **Added an interactive Google Maps embed to the Contact page, displaying Johannesburg as the organisation's general service area. The map is responsive and was tested on desktop and mobile devices.
 - **Added CSS transitions and hover effects to buttons, links and programme cards.
 - **Added a fade-in keyframe animation to improve page-loading presentation.
-
-
+- **Added a community image gallery to the homepage featuring programme, community and volunteer images.
+- **Implemented an interactive lightbox that allows visitors to enlarge gallery images and close them using the close button, clicking outside the image or pressing Escape.
+- **Added responsive gallery styling to display images neatly on desktop and mobile devices.
+ 
 ## Testing Screenshots
 
 ### Desktop View
