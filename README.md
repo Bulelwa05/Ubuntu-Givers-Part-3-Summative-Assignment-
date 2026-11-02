@@ -218,7 +218,6 @@ Ubuntu Givers
 The main project structure includes:
 
 Ubuntu Givers
-
 ├── css
 │   └── style.css
 ├── javascript
@@ -230,6 +229,8 @@ Ubuntu Givers
 ├── services.html
 ├── enquiry.html
 ├── contact.html
+├── robots.txt
+├── sitemap.xml
 └── README.md
 
 ## Changelog
@@ -263,28 +264,30 @@ Ubuntu Givers
 
 ### Part 3 — Enhancing Functionality and SEO
 
-* Added JavaScript functionality to search and filter community programmes.
+* Added JavaScript functionality to dynamically load community programmes.
+* Implemented search and filtering for community programmes.
+* Introduced alphabetical sorting for community programmes.
 * Added an FAQ accordion to the About page.
+* Added an interactive Johannesburg map to the Contact page to show the general service area.
+* Added CSS transitions, hover effects and entrance animations.
+* Added a responsive community image gallery to the homepage.
+* Added JavaScript lightbox functionality with click-to-open, close-button, outside-click and Escape-key support.
 * Improved enquiry and contact forms with HTML5 validation and JavaScript feedback.
-* Added functionality to prepare contact emails using the user's email application.
+* Connected the enquiry form to Formspree using AJAX for form submission.
+* Added functionality to prepare contact emails using the user's email application, addressed to info@ubuntugivers.org.za.
 * Updated page titles and meta descriptions for SEO.
 * Reviewed image alternative text and homepage HTML structure.
 * Added `robots.txt` and `sitemap.xml`.
 * Tested the website's main pages and checked the layout in a mobile-sized browser view.
-- Added a responsive community image gallery to the homepage.
-- Added JavaScript lightbox functionality with click-to-open, close-button, outside-click and Escape-key support.
-- Added CSS styling for the gallery and lightbox.
-- Improved programme search and filtering functionality.
-- Introduced alphabetical sorting for community programmes.
 
 
 ## References
 
 The following resources were consulted during the development of the website:
 
-*Mozilla Developer Network, 2024. HTML: HyperText Markuo Language. Available at: developer.mozilla.org [Accessed 18 September]
-* The IIE, 2026, WEDE5020 Module Manual 2026. Johannesburg: The Independent Institute of Education
-* W3Schools, 2024. CSS Tutorial. Available at w3schools.com [Accessed 18 September]
+- Mozilla Developer Network (MDN), 2024. *HTML: HyperText Markup Language*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML [Accessed 02 November 2026].
+- The IIE, 2026. *WEDE5020 Module Manual 2026*. Johannesburg: The Independent Institute of Education.
+- W3Schools, 2024. *CSS Tutorial*. Available at: https://www.w3schools.com/css/ [Accessed 02 November 2026].
 
 
 ## GitHub Repository
