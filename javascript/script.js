@@ -1,4 +1,3 @@
-
 "use strict";
 
 // Confirm that JavaScript is connected correctly.
@@ -6,24 +5,63 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Ubuntu Givers JavaScript is working!");
 });
 
+
 // Confirm that JavaScript is connected correctly.
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Ubuntu Givers JavaScript is working!");
 });
 
-// Search and filter community programmes.
-// Search, filter and sort community programmes.
+// Part 3: Dynamically load, search and sort community programmes.
+
 document.addEventListener("DOMContentLoaded", function () {
+    const programmeContainer = document.getElementById("programmeContainer");
     const searchInput = document.getElementById("programmeSearch");
-    const programmeContainer = document.querySelector("main");
     const searchMessage = document.getElementById("searchMessage");
     const sortSelect = document.getElementById("programmeSort");
 
-    if (!searchInput || !programmeContainer || !searchMessage || !sortSelect) {
+    if (!programmeContainer || !searchInput || !searchMessage || !sortSelect) {
         return;
     }
 
-    const programmes = Array.from(
+    const programmes = [
+        {
+            title: "Education Support Programme",
+            description: "This programme provides after-school tutoring, homework support, and educational resources to learners who need additional academic assistance."
+        },
+        {
+            title: "Food Relief Initiative",
+            description: "The Food Relief Initiative provides food parcels and community meals to families and individuals experiencing food insecurity."
+        },
+        {
+            title: "Digital Skills Academy",
+            description: "The Digital Skills Academy introduces community members to basic computer skills, digital literacy, and technology awareness."
+        },
+        {
+            title: "Youth Leadership and Mentorship",
+            description: "This programme provides young people with mentorship, career guidance, leadership development, and personal development opportunities."
+        },
+        {
+            title: "Community Development Projects",
+            description: "Community development projects include donation drives, seasonal outreach campaigns, and initiatives designed to improve local community spaces."
+        }
+    ];
+
+    programmes.forEach(function (programme) {
+        const card = document.createElement("section");
+        card.className = "programme-card";
+
+        const heading = document.createElement("h3");
+        heading.textContent = programme.title;
+
+        const description = document.createElement("p");
+        description.textContent = programme.description;
+
+        card.appendChild(heading);
+        card.appendChild(description);
+        programmeContainer.appendChild(card);
+    });
+
+    const cards = Array.from(
         programmeContainer.querySelectorAll(".programme-card")
     );
 
@@ -31,31 +69,28 @@ document.addEventListener("DOMContentLoaded", function () {
         const searchTerm = searchInput.value.trim().toLowerCase();
         const sortOrder = sortSelect.value;
 
-        const sortedProgrammes = [...programmes];
+        const sortedCards = [...cards];
 
         if (sortOrder === "ascending") {
-            sortedProgrammes.sort((a, b) =>
+            sortedCards.sort((a, b) =>
                 a.querySelector("h3").textContent.localeCompare(
                     b.querySelector("h3").textContent
                 )
             );
         } else if (sortOrder === "descending") {
-            sortedProgrammes.sort((a, b) =>
+            sortedCards.sort((a, b) =>
                 b.querySelector("h3").textContent.localeCompare(
                     a.querySelector("h3").textContent
                 )
             );
         }
 
-        sortedProgrammes.forEach(function (programme) {
-            const matches = programme.textContent.toLowerCase().includes(searchTerm);
-            programme.hidden = !matches;
-            programmeContainer.appendChild(programme);
+        sortedCards.forEach(function (card) {
+            card.hidden = !card.textContent.toLowerCase().includes(searchTerm);
+            programmeContainer.appendChild(card);
         });
 
-        const visibleCount = sortedProgrammes.filter(function (programme) {
-            return !programme.hidden;
-        }).length;
+        const visibleCount = sortedCards.filter(card => !card.hidden).length;
 
         if (visibleCount === 0) {
             searchMessage.textContent = "No programmes found. Try another search.";
@@ -68,16 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     searchInput.addEventListener("input", updateProgrammes);
     sortSelect.addEventListener("change", updateProgrammes);
+
+    updateProgrammes();
 });
-
-        if (visibleCount === 0) {
-            searchMessage.textContent = "No programmes found. Try another search.";
-        } else if (searchTerm === "") {
-            searchMessage.textContent = "Showing all " + visibleCount + " programmes.";
-        } else {
-            searchMessage.textContent = "Showing " + visibleCount + " matching programme(s).";
-        }
-
+    
 
 /* Frequently Asked Questions accordion */
 document.addEventListener("DOMContentLoaded", function () {
@@ -96,6 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* Enquiry form validation */
+
+/* Enquiry form validation and AJAX submission */
 document.addEventListener("DOMContentLoaded", function () {
     const enquiryForm = document.getElementById("enquiryForm");
     const feedback = document.getElementById("enquiryFeedback");
@@ -104,50 +135,60 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    enquiryForm.addEventListener("submit", function (event) {
+    enquiryForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         if (!enquiryForm.checkValidity()) {
             enquiryForm.reportValidity();
-            feedback.textContent = "Please correct the highlighted fields and try again.";
+            feedback.textContent =
+                "Please correct the highlighted fields and try again.";
             return;
         }
 
         const fullName = document.getElementById("name").value.trim();
-const enquiryType = document.getElementById("enquiry-type").value;
+        const enquiryType = document.getElementById("enquiry-type").value;
 
-let responseMessage = "";
+        feedback.textContent = "Submitting your enquiry...";
 
-if (enquiryType === "volunteer") {
-    responseMessage =
-        "Thank you for your interest in volunteering with Ubuntu Givers. " +
-        "Volunteer opportunities and availability would need to be confirmed by the organisation.";
-} else if (enquiryType === "sponsor") {
-    responseMessage =
-        "Thank you for your interest in sponsoring Ubuntu Givers. " +
-        "Sponsorship arrangements, costs and opportunities would need to be discussed with the organisation.";
-} else {
-    responseMessage =
-        "Thank you for contacting Ubuntu Givers. " +
-        "Please use our Contact page to prepare an email with your enquiry.";
-}
+        try {
+            const response = await fetch(enquiryForm.action, {
+                method: "POST",
+                body: new FormData(enquiryForm),
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
 
-enquiryForm.reset();
+            if (!response.ok) {
+                throw new Error("Submission failed.");
+            }
 
-feedback.textContent =
-    "Thank you, " + fullName + "! " + responseMessage +
-    " Please note: this demonstration does not send or store your enquiry.";
+            let responseMessage = "";
 
-feedback.hidden = false;
-feedback.style.display = "block";
-feedback.style.color = "#245c32";
-feedback.style.backgroundColor = "#f5f8f2";
-feedback.style.border = "1px solid #81a881";
-feedback.style.padding = "12px";
-feedback.style.marginTop = "15px";
+            if (enquiryType === "volunteer") {
+                responseMessage =
+                    "Thank you for your interest in volunteering with Ubuntu Givers.";
+            } else if (enquiryType === "sponsor") {
+                responseMessage =
+                    "Thank you for your interest in sponsoring Ubuntu Givers.";
+            } else {
+                responseMessage =
+                    "Thank you for contacting Ubuntu Givers.";
+            }
 
+            enquiryForm.reset();
+
+            feedback.textContent =
+                "Thank you, " + fullName + "! " + responseMessage +
+                " Your enquiry has been submitted successfully.";
+
+        } catch (error) {
+            feedback.textContent =
+                "Sorry, your enquiry could not be submitted. Please try again.";
+        }
     });
 });
+
 
 /* Contact form validation and email preparation */
 document.addEventListener("DOMContentLoaded", function () {
@@ -238,7 +279,5 @@ document.addEventListener("DOMContentLoaded", function () {
             lightbox.hidden = true;
             lightboxImage.src = "";
         }
-
-        
     });
 });
